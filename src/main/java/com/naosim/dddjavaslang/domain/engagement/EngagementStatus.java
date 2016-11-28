@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Delegate;
 
-@EqualsAndHashCode
 @AllArgsConstructor
 public enum EngagementStatus {
     startOrdered(IsEngaged.notEngaged),
