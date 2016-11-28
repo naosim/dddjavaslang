@@ -5,7 +5,9 @@ import com.naosim.dddjavaslang.lib.date.CurrentDateTime;
 import com.naosim.dddjavaslang.lib.date.DateToStateUtil;
 import javaslang.control.Option;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode
 @AllArgsConstructor
 public class EngagementDateSet {
     private final EngagementStartOrderDate engagementStartOrderDate;

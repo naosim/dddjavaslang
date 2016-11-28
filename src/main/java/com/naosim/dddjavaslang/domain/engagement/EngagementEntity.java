@@ -8,8 +8,10 @@ import javaslang.control.Option;
 import javaslang.control.Validation;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@EqualsAndHashCode
 @AllArgsConstructor
 public class EngagementEntity {
     @Getter

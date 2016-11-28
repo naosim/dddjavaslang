@@ -10,12 +10,14 @@ import com.naosim.dddjavaslang.domain.useraccessinfo.birthday.EngagableAge;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UniqueUserNameKana;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UserNameKanji;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 
 /**
  * 契約開始申込
  */
+@EqualsAndHashCode
 @AllArgsConstructor
 public class ValidEngagementStartOrder {
     @Getter

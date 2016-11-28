@@ -7,8 +7,10 @@ import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartD
 import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartOrderDate;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class EngagementEndOrder {
     @Getter

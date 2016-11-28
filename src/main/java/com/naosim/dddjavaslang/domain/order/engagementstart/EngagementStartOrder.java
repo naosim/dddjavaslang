@@ -6,11 +6,13 @@ import com.naosim.dddjavaslang.domain.useraccessinfo.birthday.Age;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UserNameKana;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UserNameKanji;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 /**
  * 契約開始申込
  */
+@EqualsAndHashCode
 @AllArgsConstructor
 public class EngagementStartOrder {
     @Getter

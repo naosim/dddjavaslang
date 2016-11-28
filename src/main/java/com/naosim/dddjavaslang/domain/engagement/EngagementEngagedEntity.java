@@ -10,6 +10,7 @@ import com.naosim.dddjavaslang.lib.valid.InvalidReasonString;
 import javaslang.control.Option;
 import javaslang.control.Validation;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 /**
  * 契約中の契約エンティティ
  */
+@EqualsAndHashCode
 public class EngagementEngagedEntity extends EngagementEntity {
     private EngagementEngagedEntity(UserId userId, EngagementDateSet engagementDateSet, CurrentDateTime currentDateTime) {
         super(userId, engagementDateSet, currentDateTime);

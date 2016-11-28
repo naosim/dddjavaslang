@@ -6,11 +6,13 @@ import com.naosim.dddjavaslang.lib.javaslangutil.JavaslangUtil;
 import com.naosim.dddjavaslang.lib.valid.InvalidReason;
 import com.naosim.dddjavaslang.lib.valid.InvalidReasonString;
 import javaslang.control.Validation;
+import lombok.EqualsAndHashCode;
 
 /**
  * 契約可能な年齢
  * 20歳以上
  */
+@EqualsAndHashCode
 public class EngagableAge extends Age {
     private EngagableAge(Birthday birthday, CurrentDateTime currentDateTime) {
         super(birthday, currentDateTime);

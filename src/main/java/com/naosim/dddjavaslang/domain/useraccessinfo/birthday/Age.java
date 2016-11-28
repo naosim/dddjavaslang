@@ -4,10 +4,12 @@ package com.naosim.dddjavaslang.domain.useraccessinfo.birthday;
 import com.naosim.dddjavaslang.lib.date.CurrentDateTime;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.time.temporal.ChronoUnit;
 
+@EqualsAndHashCode
 @AllArgsConstructor
 public class Age {
     @Getter

@@ -7,8 +7,10 @@ import com.naosim.dddjavaslang.domain.useraccessinfo.username.UniqueUserNameKana
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UserNameKanji;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@EqualsAndHashCode
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserAccessInfoOrder {
     private final UserId userId;
