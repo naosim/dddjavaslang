@@ -1,10 +1,9 @@
 package com.naosim.dddjavaslang.service;
 
 import com.naosim.dddjavaslang.domain.account.UserId;
-import com.naosim.dddjavaslang.domain.engagement.EngagementEndOrder;
 import com.naosim.dddjavaslang.domain.engagement.EngagementRepository;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementEndDate;
 import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementEndOrderDate;
+import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartCancelOrderDate;
 import com.naosim.dddjavaslang.lib.javaslangutil.JavaslangUtil;
 import com.naosim.dddjavaslang.lib.valid.InvalidReason;
 import com.naosim.dddjavaslang.lib.valid.InvalidReasonString;
@@ -16,16 +15,19 @@ import org.springframework.stereotype.Component;
 
 import static com.naosim.dddjavaslang.lib.javaslangutil.JavaslangUtil.f;
 
+/**
+ * 契約申込キャンセル
+ */
 @Component
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class EngagementEndOrderService {
+public class EngagementCancelStartOrderService {
     private final EngagementRepository engagementRepository;
 
-    public Option<InvalidReason> order(UserId userId, EngagementEndOrderDate engagementEndOrderDate) {
+    public Option<InvalidReason> order(UserId userId, EngagementStartCancelOrderDate engagementStartCancelOrderDate) {
         Validation<InvalidReason, ?> validation = engagementRepository
-                .findEngaged(userId)
-                .map(entity -> entity.endOrder(engagementEndOrderDate))
-                .map(f(engagementRepository::endOrder));
+                .findBeforeEngage(userId)
+                .map(entity -> entity.cancelStartOrder(engagementStartCancelOrderDate))
+                .map(f(engagementRepository::cancelStartOrder));
         return JavaslangUtil.invalidOptional(validation);
     }
 }

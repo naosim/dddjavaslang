@@ -36,7 +36,7 @@ public class EngagementStartOrderService {
         // アカウント
         accountRepository.save(engagementStartOrder.getAccount());
         // 契約
-        engagementRepository.order(engagementStartOrder.createEngagementStartOrder());
+        engagementRepository.startOrder(engagementStartOrder.createEngagementStartOrder());
         // 支払方法
         paymentRepository.insert(engagementStartOrder.createPaymentStartOrder());
         // 連絡先情報

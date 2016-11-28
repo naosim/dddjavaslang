@@ -16,10 +16,16 @@ import java.time.LocalDateTime;
 public class EngagementRepositoryOnMemory implements EngagementRepository {
     private Set<EngagementStartOrder> engagementStartOrderTable = HashSet.empty();
     private Set<EngagementEndOrder> engagementEndOrderTable = HashSet.empty();
+    private Set<EngagementCancelStartOrder> engagementCancelStartOrderTable = HashSet.empty();
 
     @Override
-    public void order(EngagementStartOrder engagementStartOrder) {
+    public void startOrder(EngagementStartOrder engagementStartOrder) {
         engagementStartOrderTable = engagementStartOrderTable.add(engagementStartOrder);
+    }
+
+    @Override
+    public void cancelStartOrder(EngagementCancelStartOrder engagementCancelStartOrder) {
+        engagementCancelStartOrderTable = engagementCancelStartOrderTable.add(engagementCancelStartOrder);
     }
 
     @Override
@@ -39,5 +45,10 @@ public class EngagementRepositoryOnMemory implements EngagementRepository {
     @Override
     public Validation<InvalidReason, EngagementEngagedEntity> findEngaged(UserId userId) {
         return find(userId).flatMap(EngagementEngagedEntity::create);
+    }
+
+    @Override
+    public Validation<InvalidReason, EngagementBeforeEngageEntity> findBeforeEngage(UserId userId) {
+        return find(userId).flatMap(EngagementBeforeEngageEntity::create);
     }
 }
