@@ -17,10 +17,10 @@ public class EngagementEndOrderService {
     private final EngagementRepository engagementRepository;
 
     public Option<InvalidReason> order(UserId userId, ServiceEngagementEndOrderDate engagementEndOrderDate) {
-        Validation<InvalidReason, ?> validation = engagementRepository
+        return engagementRepository
                 .findEngaged(userId)
                 .map(entity -> entity.endOrder(engagementEndOrderDate))
-                .peek(engagementRepository::endOrder);
-        return JavaslangUtil.invalidOptional(validation);
+                .peek(engagementRepository::endOrder)
+                .leftMap(Option::some).getError();
     }
 }

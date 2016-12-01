@@ -20,10 +20,10 @@ public class EngagementCancelStartOrderService {
     private final EngagementRepository engagementRepository;
 
     public Option<InvalidReason> order(UserId userId, ServiceEngagementStartCancelOrderDate serviceEngagementStartCancelOrderDate) {
-        Validation<InvalidReason, ?> validation = engagementRepository
+        return engagementRepository
                 .findBeforeEngage(userId)
                 .map(entity -> entity.cancelStartOrder(serviceEngagementStartCancelOrderDate))
-                .peek(engagementRepository::cancelStartOrder);
-        return JavaslangUtil.invalidOptional(validation);
+                .peek(engagementRepository::cancelStartOrder)
+                .leftMap(Option::some).getError();
     }
 }

@@ -25,8 +25,10 @@ public class EngagementStartOrderService {
     private final EngagementRepository engagementRepository;
 
     public Option<List<InvalidReason>> order(EngagementStartOrder engagementStartOrder) {
-        Validation<List<InvalidReason>, ?> validation = validateEngagementStartOrder(engagementStartOrder).peek(this::order);
-        return JavaslangUtil.invalidOptional(validation);
+        return validateEngagementStartOrder(engagementStartOrder)
+                .peek(this::order)
+                .leftMap(Option::some)
+                .getError();
     }
 
     public void order(ValidEngagementStartOrder engagementStartOrder) {
