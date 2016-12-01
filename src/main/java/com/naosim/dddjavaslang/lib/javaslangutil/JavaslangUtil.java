@@ -21,13 +21,6 @@ public class JavaslangUtil {
         return org.toEither().left().map(v -> Option.some(v)).getOrElse(Option.none());
     }
 
-    public static <T> Function<T, T> f(Consumer<T> action) {
-        return (v) -> {
-            action.accept(v);
-            return v;
-        };
-    }
-
     public static <E, T> Validation<E, T> toValidation(Option<T> org, Supplier<E> error) {
         return org.isDefined() ? Validation.valid(org.get()) : Validation.invalid(error.get());
     }

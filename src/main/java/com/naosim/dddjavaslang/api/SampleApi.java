@@ -1,6 +1,6 @@
 package com.naosim.dddjavaslang.api;
 
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartOrderDate;
+import com.naosim.dddjavaslang.domain.serviceengagement.engagementdate.ServiceEngagementStartOrderDate;
 import com.naosim.dddjavaslang.domain.order.engagementstart.EngagementStartOrder;
 import com.naosim.dddjavaslang.domain.payment.CreditCard;
 import com.naosim.dddjavaslang.domain.payment.CreditCardExpireDate;
@@ -39,7 +39,7 @@ public class SampleApi {
         LocalDateTime now = LocalDateTime.now();
         CurrentDateTime currentDateTime = new CurrentDateTime(now);
         EngagementStartOrder engagementStartOrder = new EngagementStartOrder(
-                new EngagementStartOrderDate(now.toLocalDate()),
+                new ServiceEngagementStartOrderDate(now.toLocalDate()),
                 new UserNameKana(new UserNameSeiKana("シナガワ"), new UserNameMeiKana("タロウ")),
                 new UserNameKanji(new UserNameSeiKanji("品川"), new UserNameMeiKanji("太郎")),
                 new Age(new Birthday(LocalDate.of(1990, 1, 1)), currentDateTime),

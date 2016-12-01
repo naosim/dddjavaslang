@@ -1,4 +1,4 @@
-package com.naosim.dddjavaslang.domain.engagement;
+package com.naosim.dddjavaslang.domain.serviceengagement;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

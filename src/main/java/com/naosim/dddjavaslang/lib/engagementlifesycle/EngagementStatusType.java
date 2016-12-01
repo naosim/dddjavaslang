@@ -1,11 +1,13 @@
-package com.naosim.dddjavaslang.domain.engagement;
+package com.naosim.dddjavaslang.lib.engagementlifesycle;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Delegate;
 
+/**
+ * 契約状態
+ */
 @AllArgsConstructor
-public enum EngagementStatus {
+public enum EngagementStatusType implements EngagementStatus {
     startOrdered(IsEngaged.notEngaged),
     startOrderCanceled(IsEngaged.notEngaged),
     engaged(IsEngaged.engaged),

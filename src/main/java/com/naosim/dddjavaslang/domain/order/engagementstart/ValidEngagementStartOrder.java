@@ -1,8 +1,7 @@
 package com.naosim.dddjavaslang.domain.order.engagementstart;
 
 import com.naosim.dddjavaslang.domain.account.Account;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartDate;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartOrderDate;
+import com.naosim.dddjavaslang.domain.serviceengagement.engagementdate.ServiceEngagementStartOrderDate;
 import com.naosim.dddjavaslang.domain.payment.EnableCreditCard;
 import com.naosim.dddjavaslang.domain.payment.PaymentStartOrder;
 import com.naosim.dddjavaslang.domain.useraccessinfo.UserAccessInfoOrder;
@@ -21,7 +20,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ValidEngagementStartOrder {
     @Getter
-    private final EngagementStartOrderDate engagementStartOrderDate;
+    private final ServiceEngagementStartOrderDate engagementStartOrderDate;
     @Getter
     private final UniqueUserNameKana uniqueUserNameKana;
     @Getter
@@ -33,11 +32,10 @@ public class ValidEngagementStartOrder {
     @Getter
     private final Account account;
 
-    public com.naosim.dddjavaslang.domain.engagement.EngagementStartOrder createEngagementStartOrder() {
-        return new com.naosim.dddjavaslang.domain.engagement.EngagementStartOrder(
+    public com.naosim.dddjavaslang.domain.serviceengagement.EngagementStartOrder createEngagementStartOrder() {
+        return new com.naosim.dddjavaslang.domain.serviceengagement.EngagementStartOrder(
                 account.getUserId(),
-                engagementStartOrderDate,
-                EngagementStartDate.create(engagementStartOrderDate)
+                engagementStartOrderDate
         );
     }
 

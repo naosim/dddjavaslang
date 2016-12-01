@@ -1,31 +1,26 @@
 package com.naosim.dddjavaslang.service;
 
 import com.naosim.dddjavaslang.domain.account.UserId;
-import com.naosim.dddjavaslang.domain.engagement.EngagementEndOrder;
-import com.naosim.dddjavaslang.domain.engagement.EngagementRepository;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementEndDate;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementEndOrderDate;
+import com.naosim.dddjavaslang.domain.serviceengagement.EngagementRepository;
+import com.naosim.dddjavaslang.domain.serviceengagement.engagementdate.ServiceEngagementEndOrderDate;
 import com.naosim.dddjavaslang.lib.javaslangutil.JavaslangUtil;
 import com.naosim.dddjavaslang.lib.valid.InvalidReason;
-import com.naosim.dddjavaslang.lib.valid.InvalidReasonString;
 import javaslang.control.Option;
 import javaslang.control.Validation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static com.naosim.dddjavaslang.lib.javaslangutil.JavaslangUtil.f;
-
 @Component
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class EngagementEndOrderService {
     private final EngagementRepository engagementRepository;
 
-    public Option<InvalidReason> order(UserId userId, EngagementEndOrderDate engagementEndOrderDate) {
+    public Option<InvalidReason> order(UserId userId, ServiceEngagementEndOrderDate engagementEndOrderDate) {
         Validation<InvalidReason, ?> validation = engagementRepository
                 .findEngaged(userId)
                 .map(entity -> entity.endOrder(engagementEndOrderDate))
-                .map(f(engagementRepository::endOrder));
+                .peek(engagementRepository::endOrder);
         return JavaslangUtil.invalidOptional(validation);
     }
 }

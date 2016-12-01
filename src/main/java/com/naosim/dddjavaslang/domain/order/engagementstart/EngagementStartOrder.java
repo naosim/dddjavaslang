@@ -1,6 +1,6 @@
 package com.naosim.dddjavaslang.domain.order.engagementstart;
 
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartOrderDate;
+import com.naosim.dddjavaslang.domain.serviceengagement.engagementdate.ServiceEngagementStartOrderDate;
 import com.naosim.dddjavaslang.domain.payment.CreditCard;
 import com.naosim.dddjavaslang.domain.useraccessinfo.birthday.Age;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UserNameKana;
@@ -16,7 +16,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class EngagementStartOrder {
     @Getter
-    private final EngagementStartOrderDate engagementStartOrderDate;
+    private final ServiceEngagementStartOrderDate engagementStartOrderDate;
     @Getter
     private final UserNameKana userNameKana;
     @Getter

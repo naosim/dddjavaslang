@@ -1,7 +1,7 @@
 package com.naosim.dddjavaslang.service;
 
 import com.naosim.dddjavaslang.domain.account.AccountRepository;
-import com.naosim.dddjavaslang.domain.engagement.EngagementRepository;
+import com.naosim.dddjavaslang.domain.serviceengagement.EngagementRepository;
 import com.naosim.dddjavaslang.domain.order.engagementstart.EngagementStartOrder;
 import com.naosim.dddjavaslang.domain.order.engagementstart.ValidEngagementStartOrder;
 import com.naosim.dddjavaslang.domain.payment.PaymentRepository;
@@ -16,8 +16,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static com.naosim.dddjavaslang.lib.javaslangutil.JavaslangUtil.f;
-
 @Component
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class EngagementStartOrderService {
@@ -27,8 +25,7 @@ public class EngagementStartOrderService {
     private final EngagementRepository engagementRepository;
 
     public Option<List<InvalidReason>> order(EngagementStartOrder engagementStartOrder) {
-        Validation<List<InvalidReason>, ?> validation = validateEngagementStartOrder(engagementStartOrder)
-                .map(f(this::order));
+        Validation<List<InvalidReason>, ?> validation = validateEngagementStartOrder(engagementStartOrder).peek(this::order);
         return JavaslangUtil.invalidOptional(validation);
     }
 

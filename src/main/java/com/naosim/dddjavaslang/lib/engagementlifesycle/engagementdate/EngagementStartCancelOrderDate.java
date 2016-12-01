@@ -1,4 +1,4 @@
-package com.naosim.dddjavaslang.domain.engagement.engagementdate;
+package com.naosim.dddjavaslang.lib.engagementlifesycle.engagementdate;
 
 import com.naosim.dddjavaslang.lib.date.DateValueObjectWithCompareCurrentDateTime;
 import lombok.AllArgsConstructor;
@@ -8,11 +8,11 @@ import lombok.Getter;
 import java.time.LocalDate;
 
 /**
- * 契約開始申込日
+ * 契約開始キャンセル申込日
  */
 @EqualsAndHashCode
 @AllArgsConstructor
-public class EngagementStartOrderDate implements DateValueObjectWithCompareCurrentDateTime {
+public class EngagementStartCancelOrderDate implements DateValueObjectWithCompareCurrentDateTime {
     @Getter
     private final LocalDate value;
 }

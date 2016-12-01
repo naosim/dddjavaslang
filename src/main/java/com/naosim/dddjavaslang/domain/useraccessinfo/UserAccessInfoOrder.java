@@ -1,8 +1,8 @@
 package com.naosim.dddjavaslang.domain.useraccessinfo;
 
 import com.naosim.dddjavaslang.domain.account.UserId;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartDate;
-import com.naosim.dddjavaslang.domain.engagement.engagementdate.EngagementStartOrderDate;
+import com.naosim.dddjavaslang.domain.serviceengagement.engagementdate.ServiceEngagementStartDate;
+import com.naosim.dddjavaslang.domain.serviceengagement.engagementdate.ServiceEngagementStartOrderDate;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UniqueUserNameKana;
 import com.naosim.dddjavaslang.domain.useraccessinfo.username.UserNameKanji;
 import lombok.AccessLevel;
@@ -17,21 +17,21 @@ public class UserAccessInfoOrder {
     @Getter
     private final UniqueUserNameKana uniqueUserNameKana;
     private final UserNameKanji userNameKanji;
-    private final EngagementStartOrderDate engagementStartOrderDate;
-    private final EngagementStartDate engagementStartDate;
+    private final ServiceEngagementStartOrderDate engagementStartOrderDate;
+    private final ServiceEngagementStartDate engagementStartDate;
 
     public static UserAccessInfoOrder create(
             UserId userId,
             UniqueUserNameKana uniqueUserNameKana,
             UserNameKanji userNameKanji,
-            EngagementStartOrderDate engagementStartOrderDate
+            ServiceEngagementStartOrderDate engagementStartOrderDate
     ) {
         return new UserAccessInfoOrder(
                 userId,
                 uniqueUserNameKana,
                 userNameKanji,
                 engagementStartOrderDate,
-                EngagementStartDate.create(engagementStartOrderDate)
+                ServiceEngagementStartDate.create(engagementStartOrderDate)
         );
     }
 }
